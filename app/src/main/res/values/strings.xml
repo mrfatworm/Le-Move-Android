@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Le Move</string>
+    <string name="onboarding">Onboarding</string>
+    <string name="home">首頁</string>
+    <string name="explore">探索</string>
+    <string name="profile">"個人 "</string>
+    <string name="my_friends">我的好友</string>
+    <string name="my_collection">我的收藏</string>
+    <string name="notification_setting">通知設定</string>
+</resources>
