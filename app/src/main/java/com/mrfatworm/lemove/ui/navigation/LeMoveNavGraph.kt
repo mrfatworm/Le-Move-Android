@@ -14,7 +14,13 @@ fun LeMoveNavGraph(
 ) {
     NavHost(navController = navController, startDestination = "splash") {
         composable(route = "splash") {
-            SplashScreen(gotoMainScreen = { navController.navigate("onboarding") })
+            SplashScreen(gotoMainScreen = {
+                navController.navigate("onboarding") {
+                    popUpTo("splash") {
+                        inclusive = true
+                    }
+                }
+            })
         }
         navigation(route = "onboarding", startDestination = "onboard_intro") {
             composable("onboard_intro") {
