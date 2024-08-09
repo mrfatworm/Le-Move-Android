@@ -9,7 +9,7 @@ data class OnBoardIntroState(
 )
 
 data class InfoPager(
-    @DrawableRes val image: Int, @StringRes val title: Int, @StringRes val description: Int
+    @DrawableRes val imageId: Int, @StringRes val titleId: Int, @StringRes val descriptionId: Int
 )
 
 val stubOnboardIntroState = OnBoardIntroState(
