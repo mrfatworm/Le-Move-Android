@@ -3,6 +3,7 @@ package com.mrfatworm.lemove.onboarding
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -21,13 +22,15 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.mrfatworm.lemove.R
+import com.mrfatworm.lemove.onboarding.data.OnBoardIntroState
+import com.mrfatworm.lemove.onboarding.data.stubOnboardIntroState
 import com.mrfatworm.lemove.ui.theme.LmColor
 import com.mrfatworm.lemove.ui.theme.Spacing
 import com.mrfatworm.lemove.ui.theme.Typography
 
 @Preview
 @Composable
-fun OnboardingIntroScreen() {
+fun OnboardingIntroScreen(uiState: OnBoardIntroState = stubOnboardIntroState) {
     Scaffold(topBar = { TopBar() }) { innerPadding ->
         Column(
             modifier = Modifier
@@ -38,36 +41,48 @@ fun OnboardingIntroScreen() {
             horizontalAlignment = Alignment.CenterHorizontally
 
         ) {
-            Image(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .aspectRatio(1f),
-                painter = painterResource(id = R.drawable.img_onboarding1),
-                contentDescription = ""
-            )
-
-            Text(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(top = 32.dp),
-                text = "久坐族必備",
-                textAlign = TextAlign.Center,
-                color = LmColor().primary,
-                style = Typography().headline2
-            )
-
-            Text(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(top = 12.dp),
-                text = "長期待在椅子上沒空運動？在椅子上就能做簡單的伸展運動！",
-                textAlign = TextAlign.Center,
-                color = LmColor().textPrimary,
-                style = Typography().caption
-            )
+            OnBoardingIntroPagerItem()
         }
     }
 
+}
+
+@Composable
+private fun OnBoardingIntroPagerItem() {
+    Column(
+        modifier = Modifier
+            .fillMaxSize(),
+        horizontalAlignment = Alignment.CenterHorizontally
+
+    ) {
+        Image(
+            modifier = Modifier
+                .fillMaxWidth()
+                .aspectRatio(1f),
+            painter = painterResource(id = R.drawable.img_onboarding1),
+            contentDescription = ""
+        )
+
+        Text(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(top = 32.dp),
+            text = "久坐族必備",
+            textAlign = TextAlign.Center,
+            color = LmColor().primary,
+            style = Typography().headline2
+        )
+
+        Text(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(top = 12.dp),
+            text = "長期待在椅子上沒空運動？在椅子上就能做簡單的伸展運動！",
+            textAlign = TextAlign.Center,
+            color = LmColor().textPrimary,
+            style = Typography().caption
+        )
+    }
 }
 
 @OptIn(ExperimentalMaterial3Api::class)

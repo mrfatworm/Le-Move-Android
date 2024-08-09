@@ -7,4 +7,14 @@
     <string name="my_friends">我的好友</string>
     <string name="my_collection">我的收藏</string>
     <string name="notification_setting">通知設定</string>
+
+    <string name="onboard_intro_title1">久坐族必備</string>
+    <string name="onboard_intro_desc1">長期待在椅子上沒空運動？在椅子上就能做簡單的伸展運動！</string>
+    <string name="onboard_intro_title2">家中核心訓練</string>
+    <string name="onboard_intro_desc2">在家中也能輕鬆強化身體，降低上班後腰酸背痛的情形!</string>
+    <string name="onboard_intro_title3">獨特的通知風格</string>
+    <string name="onboard_intro_desc3">自訂喜愛的通知風格，讓運動提醒通知變得有趣且貼心！</string>
+    <string name="is_exist_user">已經是我們的使用者了嗎?</string>
+    <string name="sign_in">登入</string>
+
 </resources>
