@@ -12,6 +12,8 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonColors
+import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.ButtonElevation
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -34,6 +36,7 @@ fun PrimaryButton(
     hasIcon: Boolean = false,
     @DrawableRes iconId: Int = R.drawable.ic_home,
     enabled: Boolean = true,
+    elevation: ButtonElevation? = ButtonDefaults.buttonElevation(),
     onClick: () -> Unit = {}
 ) {
     LmButton(
@@ -44,6 +47,7 @@ fun PrimaryButton(
         hasIcon = hasIcon,
         iconId = iconId,
         enabled = enabled,
+        elevation = elevation,
         onClick = onClick,
     )
 }
@@ -56,6 +60,7 @@ fun SecondaryButton(
     hasIcon: Boolean = false,
     @DrawableRes iconId: Int = R.drawable.ic_home,
     enabled: Boolean = true,
+    elevation: ButtonElevation? = ButtonDefaults.buttonElevation(),
     onClick: () -> Unit = {}
 ) {
     LmButton(
@@ -66,6 +71,7 @@ fun SecondaryButton(
         hasIcon = hasIcon,
         iconId = iconId,
         enabled = enabled,
+        elevation = elevation,
         onClick = onClick
     )
 }
@@ -79,11 +85,12 @@ fun LmButton(
     hasIcon: Boolean = false,
     @DrawableRes iconId: Int = R.drawable.ic_home,
     enabled: Boolean = true,
+    elevation: ButtonElevation? = ButtonDefaults.buttonElevation(),
     onClick: () -> Unit = {},
 ) {
     Button(
         modifier = modifier.height(46.dp),
-        shape = RoundedCornerShape(Radius.M),
+        shape = RoundedCornerShape(Radius.R16),
         colors = ButtonColors(
             containerColor = containerColor,
             contentColor = contentColor,
@@ -91,12 +98,13 @@ fun LmButton(
             disabledContentColor = LmColor.onDisable
         ),
         enabled = enabled,
+        elevation = elevation,
         onClick = onClick
     ) {
         if (hasIcon) {
             Icon(
                 modifier = Modifier
-                    .padding(end = Spacing.XXS)
+                    .padding(end = Spacing.S4)
                     .size(20.dp),
                 painter = painterResource(id = iconId),
                 contentDescription = ""

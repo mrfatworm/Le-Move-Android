@@ -25,3 +25,7 @@ val stubOnboardIntroState = OnBoardIntroState(
         )
     )
 )
+
+val stubOnboardIntro2State = InfoPager(R.drawable.img_onboarding4, R.string.onboard_intro_title4, R.string.onboard_intro_desc4)
+
+val stubOnboardIntro3State = InfoPager(R.drawable.img_onboarding5, R.string.onboard_intro_title5, R.string.onboard_intro_desc5)

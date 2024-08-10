@@ -33,22 +33,22 @@ import com.mrfatworm.lemove.ui.theme.LmTypography
 import com.mrfatworm.lemove.ui.theme.Spacing
 
 @Composable
-fun OnboardNameScreen(modifier: Modifier = Modifier) {
+fun OnboardNameScreen(modifier: Modifier = Modifier, onNextClick: () -> Unit = {}) {
     val textFieldText = remember { mutableStateOf("") }
     val textFieldError = remember { mutableStateOf(false) }
     val focusRequester = remember { FocusRequester() }
         Column(
             modifier = Modifier
                 .fillMaxSize()
-                .padding(start = Spacing.L, end = Spacing.L, bottom = Spacing.L),
+                .padding(start = Spacing.S24, end = Spacing.S24, bottom = Spacing.S24),
             verticalArrangement = Arrangement.SpaceBetween,
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Column(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(vertical = Spacing.XXXL),
-                verticalArrangement = Arrangement.spacedBy(Spacing.XS),
+                    .padding(vertical = Spacing.S48),
+                verticalArrangement = Arrangement.spacedBy(Spacing.S8),
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
                 Text(
@@ -77,8 +77,8 @@ fun OnboardNameScreen(modifier: Modifier = Modifier) {
                 .fillMaxWidth()
                 .imePadding(),
                 text = stringResource(id = R.string.continue_str),
-                enabled = !textFieldError.value,
-                onClick = {})
+                enabled = !textFieldError.value && textFieldText.value.isNotBlank(),
+                onClick = onNextClick)
         }
         LaunchedEffect(true) {
             focusRequester.requestFocus()

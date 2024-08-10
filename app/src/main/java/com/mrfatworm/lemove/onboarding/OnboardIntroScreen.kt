@@ -49,18 +49,18 @@ fun OnboardingIntroScreen(
         modifier = modifier
             .fillMaxSize()
             .background(color = LmColor.surface)
-            .padding(Spacing.L),
+            .padding(Spacing.S24),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.SpaceBetween
 
     ) {
         HorizontalPager(
-            state = pagerState, pageSpacing = Spacing.L, verticalAlignment = Alignment.Top
+            state = pagerState, pageSpacing = Spacing.S24, verticalAlignment = Alignment.Top
         ) { pagerState ->
             OnBoardingIntroPagerItem(uiState.infoPagers[pagerState])
         }
 
-        Column(verticalArrangement = Arrangement.spacedBy(Spacing.S)) {
+        Column(verticalArrangement = Arrangement.spacedBy(Spacing.S12)) {
             PagerIndicator(
                 modifier = Modifier.align(Alignment.CenterHorizontally),
                 pageCount = pagerState.pageCount,

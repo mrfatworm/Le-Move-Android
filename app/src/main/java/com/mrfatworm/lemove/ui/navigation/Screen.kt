@@ -18,21 +18,21 @@ sealed class Screen(
 ) {
     data object Splash : Screen("splash")
     data object OnboardFlow : Screen("onboard_flow")
-    data object OnboardIntro : Screen("onboard_intro")
-    data object OnboardFiledName : Screen("onboard_filed_name")
-    data object OnboardExperience : Screen("onboard_experience")
-    data object OnboardNotification : Screen("onboard_notification")
+    data object OnboardIntro : Screen("onboarding_intro")
+    data object OnboardFiledName : Screen("onboarding_filed_name")
+    data object OnboardExperience : Screen("onboarding_experience")
+    data object OnboardNotification : Screen("onboarding_notification")
     data object ChoseStyle : Screen("chose_style")
     data object SignUp : Screen("sign_up")
     data object SignIn : Screen("sign_in")
-    data object OnboardReady : Screen("onboard_ready")
+    data object OnboardReady : Screen("onboarding_ready")
     data object Home : Screen("home", R.string.home, R.drawable.ic_home)
     data object Explore : Screen("explore", R.string.explore, R.drawable.ic_explore)
     data object Profile : Screen("profile", R.string.profile, R.drawable.ic_profile)
     data object Friends : Screen("friends", R.string.my_friends)
     data object MyCollection : Screen("my_collection", R.string.my_collection)
     data object Settings : Screen("settings", R.string.notification_setting)
-    data object SportPrepare : Screen("sport_prepare")
+    data object Sport : Screen("sport")
 }
 
 val BottomScreens = listOf(

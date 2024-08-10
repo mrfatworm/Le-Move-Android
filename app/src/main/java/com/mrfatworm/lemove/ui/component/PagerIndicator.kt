@@ -36,7 +36,7 @@ fun PagerIndicator(modifier: Modifier, pageCount: Int, currentPage: Int) {
             val size = if (currentPage == iteration) 20.dp else 6.dp
             Box(
                 modifier = Modifier
-                    .padding(horizontal = Spacing.XXS)
+                    .padding(horizontal = Spacing.S4)
                     .clip(RoundedCornerShape(6.dp))
                     .background(color = color)
                     .size(height = 6.dp, width = size)

@@ -49,7 +49,7 @@ fun LmTextFiled(
             textStyle = LmTypography.Body2,
             enabled = enabled,
             isError = error,
-            shape = RoundedCornerShape(Radius.M),
+            shape = RoundedCornerShape(Radius.R16),
             colors = textFiledColors(),
             keyboardOptions = keyboardOptions,
             trailingIcon = {
@@ -64,8 +64,8 @@ fun LmTextFiled(
             })
         if (error) {
             Row(
-                modifier = Modifier.padding(top = Spacing.XS),
-                horizontalArrangement = Arrangement.spacedBy(Spacing.XXS)
+                modifier = Modifier.padding(top = Spacing.S8),
+                horizontalArrangement = Arrangement.spacedBy(Spacing.S4)
             ) {
                 Icon(
                     modifier = Modifier.size(20.dp),

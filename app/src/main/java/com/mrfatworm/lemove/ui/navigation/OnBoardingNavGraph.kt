@@ -22,8 +22,12 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
+import com.mrfatworm.lemove.onboarding.ChooseStyleScreen
 import com.mrfatworm.lemove.onboarding.OnboardNameScreen
+import com.mrfatworm.lemove.onboarding.OnboardingIntro2Screen
+import com.mrfatworm.lemove.onboarding.OnboardingIntro3Screen
 import com.mrfatworm.lemove.onboarding.OnboardingIntroScreen
+import com.mrfatworm.lemove.sport.SportScreen
 import com.mrfatworm.lemove.ui.component.TopBarWithLogo
 import com.mrfatworm.lemove.ui.theme.LmColor
 import kotlinx.coroutines.launch
@@ -73,7 +77,27 @@ fun OnboardingNavGraph(
                     })
                 }
                 composable(Screen.OnboardFiledName.route) {
-                    OnboardNameScreen()
+                    OnboardNameScreen(onNextClick = { navController.navigate(Screen.OnboardExperience.route) })
+                }
+                composable(Screen.OnboardExperience.route) {
+                    OnboardingIntro2Screen(
+                        onNextClick = { navController.navigate(Screen.OnboardNotification.route) },
+                        onStartClick = {
+                            navController.navigate(Screen.Sport.route)
+                        })
+                }
+                composable(Screen.Sport.route) {
+                    SportScreen()
+                }
+
+                composable(Screen.OnboardNotification.route) {
+                    OnboardingIntro3Screen(onNextClick = {
+                        navController.navigate(Screen.ChoseStyle.route)
+                    })
+                }
+
+                composable(Screen.ChoseStyle.route) {
+                    ChooseStyleScreen()
                 }
             }
         }
