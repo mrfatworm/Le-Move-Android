@@ -1,3 +1,8 @@
+/*
+ * Copyright 2024 The Le Move Open Source Project by mrfatworm
+ * License: Apache-2.0
+ */
+
 package com.mrfatworm.lemove.onboarding
 
 import androidx.compose.foundation.ExperimentalFoundationApi
@@ -28,18 +33,20 @@ import androidx.compose.ui.unit.dp
 import com.mrfatworm.lemove.R
 import com.mrfatworm.lemove.onboarding.data.OnBoardIntroState
 import com.mrfatworm.lemove.onboarding.data.stubOnboardIntroState
-import com.mrfatworm.lemove.ui.component.LmButton
 import com.mrfatworm.lemove.ui.component.OnBoardingIntroPagerItem
 import com.mrfatworm.lemove.ui.component.PagerIndicator
+import com.mrfatworm.lemove.ui.component.PrimaryButton
+import com.mrfatworm.lemove.ui.theme.LeMoveTheme
 import com.mrfatworm.lemove.ui.theme.LmColor
+import com.mrfatworm.lemove.ui.theme.LmTypography
 import com.mrfatworm.lemove.ui.theme.Spacing
-import com.mrfatworm.lemove.ui.theme.Typography
 import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalFoundationApi::class)
-@Preview
 @Composable
-fun OnboardingIntroScreen(uiState: OnBoardIntroState = stubOnboardIntroState) {
+fun OnboardingIntroScreen(
+    uiState: OnBoardIntroState = stubOnboardIntroState, onNextClick: () -> Unit = {}
+) {
     val pagerState = rememberPagerState(pageCount = { 3 })
     val coroutineScope = rememberCoroutineScope()
     Scaffold(topBar = {
@@ -71,13 +78,15 @@ fun OnboardingIntroScreen(uiState: OnBoardIntroState = stubOnboardIntroState) {
                     pageCount = pagerState.pageCount,
                     currentPage = pagerState.currentPage
                 )
-                LmButton(modifier = Modifier.fillMaxWidth(),
+                PrimaryButton(modifier = Modifier.fillMaxWidth(),
                     text = stringResource(id = R.string.continue_str),
                     onClick = {
-                        if (pagerState.currentPage < pagerState.pageCount) {
+                        if (pagerState.currentPage < pagerState.pageCount - 1) {
                             coroutineScope.launch {
                                 pagerState.animateScrollToPage(pagerState.currentPage + 1)
                             }
+                        } else {
+                            onNextClick()
                         }
                     })
                 Row(
@@ -85,12 +94,12 @@ fun OnboardingIntroScreen(uiState: OnBoardIntroState = stubOnboardIntroState) {
                 ) {
                     Text(
                         text = stringResource(id = R.string.is_exist_user),
-                        style = Typography().caption
+                        style = LmTypography.Caption
                     )
                     Text(
                         modifier = Modifier.padding(start = 4.dp),
                         text = stringResource(id = R.string.sign_in),
-                        style = Typography().caption,
+                        style = LmTypography.Caption,
                         color = LmColor.primary
                     )
                 }
@@ -98,7 +107,6 @@ fun OnboardingIntroScreen(uiState: OnBoardIntroState = stubOnboardIntroState) {
         }
     }
 }
-
 
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -118,4 +126,12 @@ private fun TopBar(showBackIcon: Boolean = true, onBackClick: () -> Unit = {}) {
             }
         }
     })
+}
+
+@Preview
+@Composable
+fun OnboardingIntroScreenPreview() {
+    LeMoveTheme {
+        OnboardingIntroScreen()
+    }
 }

@@ -17,5 +17,8 @@
     <string name="continue_str">繼續</string>
     <string name="is_exist_user">已經是我們的使用者了嗎?</string>
     <string name="sign_in">登入</string>
+    <string name="what_your_name">希望我們怎麼稱呼你?</string>
+    <string name="your_name">你的名字</string>
+    <string name="exceed_20_charactor">超過 20 個字元</string>
 
 </resources>

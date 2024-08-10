@@ -1,7 +1,13 @@
+/*
+ * Copyright 2024 The Le Move Open Source Project by mrfatworm
+ * License: Apache-2.0
+ */
+
 package com.mrfatworm.lemove.ui.theme
 
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+
 
 object Radius {
     val XXS: Dp = 4.dp

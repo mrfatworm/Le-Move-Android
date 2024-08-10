@@ -1,3 +1,8 @@
+/*
+ * Copyright 2024 The Le Move Open Source Project by mrfatworm
+ * License: Apache-2.0
+ */
+
 package com.mrfatworm.lemove.ui.component
 
 import androidx.compose.foundation.Image
@@ -15,7 +20,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.mrfatworm.lemove.onboarding.data.InfoPager
 import com.mrfatworm.lemove.ui.theme.LmColor
-import com.mrfatworm.lemove.ui.theme.Typography
+import com.mrfatworm.lemove.ui.theme.LmTypography
 
 
 @Composable
@@ -39,7 +44,7 @@ fun OnBoardingIntroPagerItem(infoPager: InfoPager) {
             text = stringResource(id = infoPager.titleId),
             textAlign = TextAlign.Center,
             color = LmColor.primary,
-            style = Typography().headline2
+            style = LmTypography.Headline2
         )
 
         Text(
@@ -49,7 +54,7 @@ fun OnBoardingIntroPagerItem(infoPager: InfoPager) {
             text = stringResource(id = infoPager.descriptionId),
             textAlign = TextAlign.Center,
             color = LmColor.textPrimary,
-            style = Typography().caption
+            style = LmTypography.Caption
         )
     }
 }
