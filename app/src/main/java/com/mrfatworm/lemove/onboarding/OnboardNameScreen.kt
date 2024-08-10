@@ -12,12 +12,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.imePadding
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.text.KeyboardOptions
-import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
-import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
-import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.mutableStateOf
@@ -26,7 +21,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.focus.FocusRequester
 import androidx.compose.ui.focus.focusRequester
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.KeyboardCapitalization
 import androidx.compose.ui.tooling.preview.Preview
@@ -38,26 +32,14 @@ import com.mrfatworm.lemove.ui.theme.LmColor
 import com.mrfatworm.lemove.ui.theme.LmTypography
 import com.mrfatworm.lemove.ui.theme.Spacing
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun OnBoardNameScreen(onBackClick: () -> Unit = {}) {
+fun OnboardNameScreen(modifier: Modifier = Modifier) {
     val textFieldText = remember { mutableStateOf("") }
     val textFieldError = remember { mutableStateOf(false) }
     val focusRequester = remember { FocusRequester() }
-    Scaffold(topBar = {
-        TopAppBar(title = { }, navigationIcon = {
-            IconButton(onClick = { onBackClick() }) {
-                Icon(
-                    painter = painterResource(id = R.drawable.ic_arrow_left),
-                    contentDescription = ""
-                )
-            }
-        })
-    }) { innerPadding ->
         Column(
             modifier = Modifier
                 .fillMaxSize()
-                .padding(innerPadding)
                 .padding(start = Spacing.L, end = Spacing.L, bottom = Spacing.L),
             verticalArrangement = Arrangement.SpaceBetween,
             horizontalAlignment = Alignment.CenterHorizontally
@@ -101,14 +83,12 @@ fun OnBoardNameScreen(onBackClick: () -> Unit = {}) {
         LaunchedEffect(true) {
             focusRequester.requestFocus()
         }
-
-    }
 }
 
 @Preview
 @Composable
-fun OnBoardNameScreenPreview() {
+fun OnboardNameScreenPreview() {
     LeMoveTheme {
-        OnBoardNameScreen()
+        OnboardNameScreen()
     }
 }

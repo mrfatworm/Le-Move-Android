@@ -14,6 +14,7 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.OutlinedTextFieldDefaults
 import androidx.compose.material3.Text
@@ -41,8 +42,7 @@ fun LmTextFiled(
     keyboardOptions: KeyboardOptions = KeyboardOptions.Default
 ) {
     Column(modifier = modifier) {
-        OutlinedTextField(
-            modifier = Modifier.fillMaxWidth(),
+        OutlinedTextField(modifier = Modifier.fillMaxWidth(),
             value = text,
             onValueChange = onTextChange,
             placeholder = { Text(text = hint) },
@@ -51,8 +51,17 @@ fun LmTextFiled(
             isError = error,
             shape = RoundedCornerShape(Radius.M),
             colors = textFiledColors(),
-            keyboardOptions = keyboardOptions
-        )
+            keyboardOptions = keyboardOptions,
+            trailingIcon = {
+                if (text.isNotBlank()) {
+                    IconButton(onClick = { onTextChange("") }) {
+                        Icon(
+                            painter = painterResource(id = R.drawable.ic_close),
+                            contentDescription = "close"
+                        )
+                    }
+                }
+            })
         if (error) {
             Row(
                 modifier = Modifier.padding(top = Spacing.XS),
@@ -111,10 +120,6 @@ fun ErrorPreview() {
 @Composable
 fun DisablePreview() {
     LmTextFiled(
-        text = "",
-        onTextChange = {},
-        hint = "Hint",
-        enabled = false,
-        error = false
+        text = "", onTextChange = {}, hint = "Hint", enabled = false, error = false
     )
 }

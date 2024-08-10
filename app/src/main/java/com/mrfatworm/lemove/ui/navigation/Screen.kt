@@ -17,6 +17,7 @@ sealed class Screen(
     val navArgs: List<NamedNavArgument> = emptyList()
 ) {
     data object Splash : Screen("splash")
+    data object OnboardFlow : Screen("onboard_flow")
     data object OnboardIntro : Screen("onboard_intro")
     data object OnboardFiledName : Screen("onboard_filed_name")
     data object OnboardExperience : Screen("onboard_experience")

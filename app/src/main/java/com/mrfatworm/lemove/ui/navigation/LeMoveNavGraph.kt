@@ -11,9 +11,6 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import androidx.navigation.compose.navigation
-import com.mrfatworm.lemove.onboarding.OnBoardNameScreen
-import com.mrfatworm.lemove.onboarding.OnboardingIntroScreen
 import com.mrfatworm.lemove.splash.SplashScreen
 
 @Composable
@@ -34,21 +31,11 @@ fun LeMoveNavGraph(
         }) {
         composable(route = Screen.Splash.route) {
             SplashScreen(gotoMainScreen = {
-                navActions.navigationToTop(Screen.OnboardIntro)
+                navActions.navigationToTop(Screen.OnboardFlow)
             })
         }
-        navigation(route = "onboarding",
-            startDestination = Screen.OnboardIntro.route) {
-            composable(Screen.OnboardIntro.route) {
-                OnboardingIntroScreen(onNextClick = {
-                    navController.navigate(Screen.OnboardFiledName.route)
-                })
-            }
-            composable(Screen.OnboardFiledName.route) {
-                OnBoardNameScreen(onBackClick = {
-                    navController.popBackStack()
-                })
-            }
+        composable(route = Screen.OnboardFlow.route) {
+            OnboardingNavGraph(navActions = navActions)
         }
     }
 }
