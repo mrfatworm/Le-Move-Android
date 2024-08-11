@@ -1,25 +1,41 @@
+/*
+ * Copyright 2024 The Le Move Open Source Project by mrfatworm
+ * License: Apache-2.0
+ */
+
 package com.mrfatworm.lemove.ui.navigation
 
+import androidx.compose.animation.AnimatedContentTransitionScope
+import androidx.compose.animation.core.tween
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import androidx.navigation.compose.navigation
-import com.mrfatworm.lemove.onboarding.OnboardingIntroScreen
 import com.mrfatworm.lemove.splash.SplashScreen
 
 @Composable
 fun LeMoveNavGraph(
     navController: NavHostController, navActions: LeMoveNavActions
 ) {
-    NavHost(navController = navController, startDestination = "splash") {
-        composable(route = "splash") {
-            SplashScreen(gotoMainScreen = { navController.navigate("onboarding") })
+    NavHost(navController = navController,
+        startDestination = Screen.Splash.route,
+        enterTransition = {
+            slideIntoContainer(
+                AnimatedContentTransitionScope.SlideDirection.Start, tween(500)
+            )
+        },
+        exitTransition = {
+            slideOutOfContainer(
+                AnimatedContentTransitionScope.SlideDirection.End, tween(500)
+            )
+        }) {
+        composable(route = Screen.Splash.route) {
+            SplashScreen(gotoMainScreen = {
+                navActions.navigationToTop(Screen.OnboardFlow)
+            })
         }
-        navigation(route = "onboarding", startDestination = "onboard_intro") {
-            composable("onboard_intro") {
-                OnboardingIntroScreen()
-            }
+        composable(route = Screen.OnboardFlow.route) {
+            OnboardingNavGraph(navActions = navActions)
         }
     }
 }

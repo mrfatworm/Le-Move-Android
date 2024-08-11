@@ -7,4 +7,34 @@
     <string name="my_friends">我的好友</string>
     <string name="my_collection">我的收藏</string>
     <string name="notification_setting">通知設定</string>
+
+    <string name="onboard_intro_title1">久坐族必備</string>
+    <string name="onboard_intro_desc1">長期待在椅子上沒空運動？在椅子上就能做簡單的伸展運動！</string>
+    <string name="onboard_intro_title2">家中核心訓練</string>
+    <string name="onboard_intro_desc2">在家中也能輕鬆強化身體，降低上班後腰酸背痛的情形!</string>
+    <string name="onboard_intro_title3">獨特的通知風格</string>
+    <string name="onboard_intro_desc3">自訂喜愛的通知風格，讓運動提醒通知變得有趣且貼心！</string>
+    <string name="onboard_intro_title4">有空嗎？立即花30秒免費體驗！</string>
+    <string name="onboard_intro_desc4">無須任何健身設備，也不用擔心需要站起來，坐在椅子上即可立即嘗試!</string>
+    <string name="onboard_intro_title5">我們將在您久坐時提醒您</string>
+    <string name="onboard_intro_desc5">您可以在「設定」中更改通知設定。</string>
+    <string name="continue_str">繼續</string>
+    <string name="is_exist_user">已經是我們的使用者了嗎?</string>
+    <string name="sign_in">登入</string>
+    <string name="what_your_name">希望我們怎麼稱呼你?</string>
+    <string name="your_name">你的名字</string>
+    <string name="exceed_20_charactor">超過 20 個字元</string>
+    <string name="later">稍後再說</string>
+    <string name="let_start">讓我們開始吧</string>
+    <string name="chose_notification_title">挑選屬於你的提醒通知風格</string>
+    <string name="chose_notification_desc">看膩了一成不變的官腔式提醒風格嗎?\n我們準備了多種風格讓您做選擇，也可以透過簽到或購買的方式解鎖更多風格。您可以在之後的設定中進行更改。</string>
+
+    <string name="popular">熱門</string>">
+    <string name="style_title1">女僕</string>
+    <string name="style_title2">情勒王</string>
+    <string name="style_title3">傲嬌貓貓</string>
+    <string name="style_title4">咕咕雞</string>
+    <string name="style_title5">快樂小狗</string>
+    <string name="style_desc">親愛的主人，工作辛苦了，該休息動一動囉♥</string>
+
 </resources>
