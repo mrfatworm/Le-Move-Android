@@ -22,6 +22,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
+import com.mrfatworm.lemove.login.SignUpScreen
 import com.mrfatworm.lemove.onboarding.ChooseStyleScreen
 import com.mrfatworm.lemove.onboarding.OnboardNameScreen
 import com.mrfatworm.lemove.onboarding.OnboardingIntro2Screen
@@ -80,8 +81,7 @@ fun OnboardingNavGraph(
                     OnboardNameScreen(onNextClick = { navController.navigate(Screen.OnboardExperience.route) })
                 }
                 composable(Screen.OnboardExperience.route) {
-                    OnboardingIntro2Screen(
-                        onNextClick = { navController.navigate(Screen.OnboardNotification.route) },
+                    OnboardingIntro2Screen(onNextClick = { navController.navigate(Screen.OnboardNotification.route) },
                         onStartClick = {
                             navController.navigate(Screen.Sport.route)
                         })
@@ -97,7 +97,13 @@ fun OnboardingNavGraph(
                 }
 
                 composable(Screen.ChoseStyle.route) {
-                    ChooseStyleScreen()
+                    ChooseStyleScreen(onNextClick = {
+                        navController.navigate(Screen.SignUp.route)
+                    })
+                }
+
+                composable(Screen.SignUp.route) {
+                    SignUpScreen(onNextClick = {})
                 }
             }
         }

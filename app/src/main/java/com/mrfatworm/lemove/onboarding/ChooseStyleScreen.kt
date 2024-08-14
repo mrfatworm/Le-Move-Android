@@ -90,7 +90,8 @@ fun ChooseStyleScreen(
                 .fillMaxWidth()
                 .padding(Spacing.S16),
             text = stringResource(id = R.string.continue_str),
-            elevation = ButtonDefaults.buttonElevation(defaultElevation = 10.dp)
+            elevation = ButtonDefaults.buttonElevation(defaultElevation = 10.dp),
+            onClick = onNextClick
         )
     }
 }

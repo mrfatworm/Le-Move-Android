@@ -37,4 +37,18 @@
     <string name="style_title5">快樂小狗</string>
     <string name="style_desc">親愛的主人，工作辛苦了，該休息動一動囉♥</string>
 
+    <string name="sign_up_announcement">我們高度重視您的隱私，您的數據將嚴格保密，絕不會分享或出售給任何第三方。</string>
+    <string name="sign_up_agreement">若您選擇註冊，即表示您同意我們的</string>
+    <string name="and">以及</string>
+    <string name="sign_up_agreement_rule">條款和條件</string>
+    <string name="sign_up_agreement_policy">隱私政策</string>
+    <string name="sign_up_has_account">已經有帳號了? 這裡</string>
+    <string name="sign_up_by_email">以Email註冊</string>
+    <string name="email">Email</string>
+    <string name="password_en">Password</string>
+    <string name="account">帳號</string>
+    <string name="password">密碼</string>
+    <string name="invalid_email">請輸入有效的電子郵件地址</string>
+    <string name="password_rule">密碼須為8–12字符，需包含英文大小寫及數字</string>
+
 </resources>

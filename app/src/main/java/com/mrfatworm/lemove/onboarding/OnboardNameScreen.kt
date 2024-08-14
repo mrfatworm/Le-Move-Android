@@ -65,7 +65,7 @@ fun OnboardNameScreen(modifier: Modifier = Modifier, onNextClick: () -> Unit = {
                         textFieldText.value = it
                         textFieldError.value = it.length > 20
                     },
-                    hint = stringResource(
+                    placeholder = stringResource(
                         R.string.your_name
                     ),
                     error = textFieldError.value,

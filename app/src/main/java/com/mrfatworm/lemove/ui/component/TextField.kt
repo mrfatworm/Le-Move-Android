@@ -9,7 +9,6 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardOptions
@@ -19,9 +18,12 @@ import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.OutlinedTextFieldDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.input.PasswordVisualTransformation
+import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.mrfatworm.lemove.R
@@ -35,23 +37,34 @@ fun LmTextFiled(
     modifier: Modifier = Modifier,
     text: String,
     onTextChange: (String) -> Unit,
-    hint: String,
+    title: String? = null,
+    hint: String? = null,
+    placeholder: String,
     error: Boolean = false,
     message: String = "",
     enabled: Boolean = true,
+    isPassword: Boolean = false,
     keyboardOptions: KeyboardOptions = KeyboardOptions.Default
 ) {
-    Column(modifier = modifier) {
+    Column(modifier = modifier, verticalArrangement = Arrangement.spacedBy(Spacing.S8)) {
+        if (title != null) {
+            Text(text = title, style = LmTypography.Subtitle2, color = LmColor.textPrimary)
+        }
         OutlinedTextField(modifier = Modifier.fillMaxWidth(),
             value = text,
             onValueChange = onTextChange,
-            placeholder = { Text(text = hint) },
+            placeholder = {
+                Text(
+                    text = placeholder, color = LmColor.textTertiary, style = LmTypography.Body2
+                )
+            },
             textStyle = LmTypography.Body2,
             enabled = enabled,
             isError = error,
             shape = RoundedCornerShape(Radius.R16),
             colors = textFiledColors(),
             keyboardOptions = keyboardOptions,
+            visualTransformation = if (isPassword) PasswordVisualTransformation() else VisualTransformation.None,
             trailingIcon = {
                 if (text.isNotBlank()) {
                     IconButton(onClick = { onTextChange("") }) {
@@ -62,9 +75,23 @@ fun LmTextFiled(
                     }
                 }
             })
+        if (hint != null) {
+            Row(
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.spacedBy(Spacing.S4)
+            ) {
+                Icon(
+                    modifier = Modifier.size(20.dp),
+                    painter = painterResource(id = R.drawable.ic_info),
+                    contentDescription = "",
+                    tint = LmColor.textTertiary
+                )
+                Text(text = hint, color = LmColor.textTertiary, style = LmTypography.Caption)
+            }
+        }
         if (error) {
             Row(
-                modifier = Modifier.padding(top = Spacing.S8),
+                verticalAlignment = Alignment.CenterVertically,
                 horizontalArrangement = Arrangement.spacedBy(Spacing.S4)
             ) {
                 Icon(
@@ -100,7 +127,12 @@ fun textFiledColors() = OutlinedTextFieldDefaults.colors(
 @Composable
 fun NormalPreview() {
     LmTextFiled(
-        text = "", onTextChange = {}, hint = "Hint", error = false, message = ""
+        text = "",
+        onTextChange = {},
+        title = "Account",
+        placeholder = "Hint",
+        error = false,
+        message = ""
     )
 }
 
@@ -109,8 +141,9 @@ fun NormalPreview() {
 fun ErrorPreview() {
     LmTextFiled(
         text = "",
+        title = "Account",
         onTextChange = {},
-        hint = "Hint",
+        placeholder = "Hint",
         error = true,
         message = stringResource(R.string.exceed_20_charactor)
     )
@@ -120,6 +153,11 @@ fun ErrorPreview() {
 @Composable
 fun DisablePreview() {
     LmTextFiled(
-        text = "", onTextChange = {}, hint = "Hint", enabled = false, error = false
+        text = "",
+        title = "Account",
+        onTextChange = {},
+        placeholder = "Hint",
+        enabled = false,
+        error = false
     )
 }
