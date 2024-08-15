@@ -7,6 +7,7 @@ package com.mrfatworm.lemove.onboarding
 
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -42,7 +43,8 @@ fun OnboardingIntroScreen(
     modifier: Modifier = Modifier,
     uiState: OnBoardIntroState = stubOnboardIntroState,
     pagerState: PagerState = rememberPagerState(pageCount = { 1 }),
-    onNextClick: () -> Unit = {}
+    onNextClick: () -> Unit = {},
+    onLoginClick: () -> Unit = {}
 ) {
     val coroutineScope = rememberCoroutineScope()
     Column(
@@ -84,7 +86,7 @@ fun OnboardingIntroScreen(
                     text = stringResource(id = R.string.is_exist_user), style = LmTypography.Caption
                 )
                 Text(
-                    modifier = Modifier.padding(start = 4.dp),
+                    modifier = Modifier.padding(start = 4.dp).clickable { onLoginClick() },
                     text = stringResource(id = R.string.sign_in),
                     style = LmTypography.Caption,
                     color = LmColor.primary

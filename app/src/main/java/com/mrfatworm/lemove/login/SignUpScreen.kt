@@ -42,8 +42,7 @@ fun SignUpScreen(modifier: Modifier = Modifier, onNextClick: () -> Unit = {}) {
         modifier = Modifier
             .fillMaxSize()
             .padding(
-                start = Spacing.S24, end = Spacing.S24, top = Spacing.S32, bottom = Spacing.S40
-            ),
+                start = Spacing.S24, end = Spacing.S24, top = Spacing.S32),
         verticalArrangement = Arrangement.SpaceBetween,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
@@ -124,7 +123,7 @@ fun SignUpScreen(modifier: Modifier = Modifier, onNextClick: () -> Unit = {}) {
                 }
             }
         }
-        Column(horizontalAlignment = Alignment.CenterHorizontally) {
+        Column(modifier = Modifier.padding(bottom = Spacing.S32), horizontalAlignment = Alignment.CenterHorizontally) {
             Text(
                 text = stringResource(id = R.string.sign_up_agreement),
                 color = LmColor.textTertiary,

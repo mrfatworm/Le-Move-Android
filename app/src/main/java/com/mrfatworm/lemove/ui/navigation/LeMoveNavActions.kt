@@ -22,4 +22,10 @@ class LeMoveNavActions(private val navController: NavHostController) {
             }
         }
     }
+
+    fun navigationAndClearBackStack(destination: Screen) {
+        navController.navigate(destination.route) {
+            popUpTo(0)
+        }
+    }
 }

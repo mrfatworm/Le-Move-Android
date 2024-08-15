@@ -35,7 +35,13 @@ fun LeMoveNavGraph(
             })
         }
         composable(route = Screen.OnboardFlow.route) {
-            OnboardingNavGraph(navActions = navActions)
+            OnboardNavGraph(navActions = navActions, onLoginClick = {
+                navActions.navigationAndClearBackStack(Screen.MainFlow)
+            })
+        }
+
+        composable(route = Screen.MainFlow.route) {
+            MainNavGraph(navActions = navActions)
         }
     }
 }

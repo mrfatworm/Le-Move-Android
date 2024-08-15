@@ -12,6 +12,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.imePadding
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.text.KeyboardOptions
+import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -89,6 +90,9 @@ fun OnboardNameScreen(modifier: Modifier = Modifier, onNextClick: () -> Unit = {
 @Composable
 fun OnboardNameScreenPreview() {
     LeMoveTheme {
-        OnboardNameScreen()
+        Surface(color = LmColor.surface) {
+            OnboardNameScreen()
+
+        }
     }
 }

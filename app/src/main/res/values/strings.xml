@@ -51,4 +51,11 @@
     <string name="invalid_email">請輸入有效的電子郵件地址</string>
     <string name="password_rule">密碼須為8–12字符，需包含英文大小寫及數字</string>
 
+    <string name="maid_greeting_title">起來動一動嘛～主人～～♥♥♥</string>
+    <string name="maid_greeting_desc">親愛的主人，工作辛苦了，該休息動一動囉♥</string>
+    <string name="onboard_finish_title">您的活動休息時間表已全部確定</string>
+    <string name="onboard_finish_desc">當您長時間未離開椅子時，你會收到「女僕風格」的提醒通知。只需點擊它，我們將指導您完成一項令人耳目一新的活動。</string>
+
+    <string name="Home_top_bar_title">早安！來動一動吧！</string>
+
 </resources>

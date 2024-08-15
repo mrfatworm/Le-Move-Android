@@ -35,8 +35,8 @@ import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
-fun OnboardingNavGraph(
-    navActions: LeMoveNavActions
+fun OnboardNavGraph(
+    navActions: LeMoveNavActions, onLoginClick: () -> Unit = {}
 ) {
     val navController = rememberNavController()
     val navBackStackEntry by navController.currentBackStackEntryAsState()
@@ -75,7 +75,7 @@ fun OnboardingNavGraph(
                 composable(Screen.OnboardIntro.route) {
                     OnboardingIntroScreen(pagerState = firstPagerState, onNextClick = {
                         navController.navigate(Screen.OnboardFiledName.route)
-                    })
+                    }, onLoginClick = onLoginClick)
                 }
                 composable(Screen.OnboardFiledName.route) {
                     OnboardNameScreen(onNextClick = { navController.navigate(Screen.OnboardExperience.route) })
@@ -102,8 +102,8 @@ fun OnboardingNavGraph(
                     })
                 }
 
-                composable(Screen.SignUp.route) {
-                    SignUpScreen(onNextClick = {})
+                composable(Screen.Home.route) {
+                    SignUpScreen(onNextClick = { navActions.navigationToTop(Screen.MainFlow) })
                 }
             }
         }
