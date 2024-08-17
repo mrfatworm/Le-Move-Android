@@ -17,8 +17,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import com.mrfatworm.lemove.R
-import com.mrfatworm.lemove.onboarding.data.InfoPager
-import com.mrfatworm.lemove.onboarding.data.stubOnboardIntro3State
+import com.mrfatworm.lemove.onboarding.model.InfoPager
+import com.mrfatworm.lemove.onboarding.model.sampleOnboardIntro3State
 import com.mrfatworm.lemove.ui.component.OnBoardingIntroPagerItem
 import com.mrfatworm.lemove.ui.component.PrimaryButton
 import com.mrfatworm.lemove.ui.theme.LeMoveTheme
@@ -28,7 +28,7 @@ import com.mrfatworm.lemove.ui.theme.Spacing
 @Composable
 fun OnboardingIntro3Screen(
     modifier: Modifier = Modifier,
-    uiState: InfoPager = stubOnboardIntro3State,
+    uiState: InfoPager = sampleOnboardIntro3State,
     onNextClick: () -> Unit = {}
 ) {
     Column(

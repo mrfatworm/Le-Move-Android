@@ -18,7 +18,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
-import com.mrfatworm.lemove.onboarding.data.InfoPager
+import com.mrfatworm.lemove.onboarding.model.InfoPager
 import com.mrfatworm.lemove.ui.theme.LmColor
 import com.mrfatworm.lemove.ui.theme.LmTypography
 

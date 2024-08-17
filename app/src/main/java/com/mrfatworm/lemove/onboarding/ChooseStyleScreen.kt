@@ -39,9 +39,9 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.mrfatworm.lemove.R
-import com.mrfatworm.lemove.onboarding.data.ChooseStyleState
-import com.mrfatworm.lemove.onboarding.data.StyleItemState
-import com.mrfatworm.lemove.onboarding.data.stubChooseStyleState
+import com.mrfatworm.lemove.onboarding.model.ChooseStyleState
+import com.mrfatworm.lemove.onboarding.model.StyleItemState
+import com.mrfatworm.lemove.onboarding.model.sampleChooseStyleState
 import com.mrfatworm.lemove.ui.component.PrimaryButton
 import com.mrfatworm.lemove.ui.theme.LeMoveTheme
 import com.mrfatworm.lemove.ui.theme.LmColor
@@ -52,7 +52,7 @@ import com.mrfatworm.lemove.ui.theme.Spacing
 @Composable
 fun ChooseStyleScreen(
     modifier: Modifier = Modifier,
-    uiState: ChooseStyleState = stubChooseStyleState,
+    uiState: ChooseStyleState = sampleChooseStyleState,
     onNextClick: () -> Unit = {}
 ) {
     var selectedStyle by remember { mutableStateOf(0) }

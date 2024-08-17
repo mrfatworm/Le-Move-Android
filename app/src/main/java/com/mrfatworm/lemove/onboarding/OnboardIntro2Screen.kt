@@ -18,8 +18,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import com.mrfatworm.lemove.R
-import com.mrfatworm.lemove.onboarding.data.InfoPager
-import com.mrfatworm.lemove.onboarding.data.stubOnboardIntro2State
+import com.mrfatworm.lemove.onboarding.model.InfoPager
+import com.mrfatworm.lemove.onboarding.model.sampleOnboardIntro2State
 import com.mrfatworm.lemove.ui.component.OnBoardingIntroPagerItem
 import com.mrfatworm.lemove.ui.component.PrimaryButton
 import com.mrfatworm.lemove.ui.component.SecondaryButton
@@ -30,7 +30,7 @@ import com.mrfatworm.lemove.ui.theme.Spacing
 @Composable
 fun OnboardingIntro2Screen(
     modifier: Modifier = Modifier,
-    uiState: InfoPager = stubOnboardIntro2State,
+    uiState: InfoPager = sampleOnboardIntro2State,
     onNextClick: () -> Unit = {},
     onStartClick: () -> Unit = {}
 ) {

@@ -26,8 +26,8 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.mrfatworm.lemove.R
-import com.mrfatworm.lemove.onboarding.data.OnBoardIntroState
-import com.mrfatworm.lemove.onboarding.data.stubOnboardIntroState
+import com.mrfatworm.lemove.onboarding.model.OnBoardIntroState
+import com.mrfatworm.lemove.onboarding.model.sampleOnboardIntroState
 import com.mrfatworm.lemove.ui.component.OnBoardingIntroPagerItem
 import com.mrfatworm.lemove.ui.component.PagerIndicator
 import com.mrfatworm.lemove.ui.component.PrimaryButton
@@ -41,7 +41,7 @@ import kotlinx.coroutines.launch
 @Composable
 fun OnboardingIntroScreen(
     modifier: Modifier = Modifier,
-    uiState: OnBoardIntroState = stubOnboardIntroState,
+    uiState: OnBoardIntroState = sampleOnboardIntroState,
     pagerState: PagerState = rememberPagerState(pageCount = { 1 }),
     onNextClick: () -> Unit = {},
     onLoginClick: () -> Unit = {}

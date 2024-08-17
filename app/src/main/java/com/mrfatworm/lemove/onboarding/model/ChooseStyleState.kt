@@ -1,4 +1,4 @@
-package com.mrfatworm.lemove.onboarding.data
+package com.mrfatworm.lemove.onboarding.model
 
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
@@ -16,18 +16,18 @@ data class StyleItemState(
     val isSelected: Boolean = false
 )
 
-val stubChooseStyleState = ChooseStyleState(
+val sampleChooseStyleState = ChooseStyleState(
     listOf(
         StyleItemState(
-            R.drawable.style1, R.string.style_title1, isPopular = true
+            R.drawable.img_style_01, R.string.style_title1, isPopular = true
         ), StyleItemState(
-            R.drawable.style2, R.string.style_title2, isPopular = true
+            R.drawable.img_style_02, R.string.style_title2, isPopular = true
         ), StyleItemState(
-            R.drawable.style3, R.string.style_title3, isPopular = true
+            R.drawable.img_style_03, R.string.style_title3, isPopular = true
         ), StyleItemState(
-            R.drawable.style4, R.string.style_title4
+            R.drawable.img_style_04, R.string.style_title4
         ), StyleItemState(
-            R.drawable.style5, R.string.style_title5
+            R.drawable.img_style_05, R.string.style_title5
         )
     )
 )

@@ -5,7 +5,6 @@
 
 package com.mrfatworm.lemove.ui.navigation
 
-import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
@@ -13,31 +12,34 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.mrfatworm.lemove.R
-import com.mrfatworm.lemove.home.HomeScreen
+import com.mrfatworm.lemove.main.ExploreScreen
+import com.mrfatworm.lemove.main.HomeScreen
+import com.mrfatworm.lemove.main.ProfileScreen
 import com.mrfatworm.lemove.ui.component.HomeTopBar
 import com.mrfatworm.lemove.ui.component.LeMoveBottomNavigation
 import com.mrfatworm.lemove.ui.theme.LmColor
 
-@OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun MainNavGraph(
-    navActions: LeMoveNavActions
+    rootNavActions: LeMoveNavActions
 ) {
     val navController = rememberNavController()
+    val navActions = remember(LeMoveNavActions(navController)) {
+        LeMoveNavActions(navController)
+    }
     val navBackStackEntry by navController.currentBackStackEntryAsState()
     val selectedDestination = navBackStackEntry?.destination?.route ?: Screen.Home.route
-    val coroutineScope = rememberCoroutineScope()
 
     Scaffold(topBar = {
         if (selectedDestination == Screen.Home.route) {
-            HomeTopBar(titleId = R.string.Home_top_bar_title)
+            HomeTopBar(titleId = R.string.home_title_01)
         }
     }, bottomBar = {
         LeMoveBottomNavigation(selectedDestination = selectedDestination, navActions = navActions)
@@ -51,8 +53,17 @@ fun MainNavGraph(
             NavHost(navController = navController,
                 route = Screen.MainFlow.route,
                 startDestination = Screen.Home.route) {
+
                 composable(Screen.Home.route) {
-                    HomeScreen(onNextClick = { navController.navigate(Screen.OnboardExperience.route) })
+                    HomeScreen()
+                }
+
+                composable(Screen.Explore.route) {
+                    ExploreScreen()
+                }
+
+                composable(Screen.Profile.route) {
+                    ProfileScreen()
                 }
             }
         }

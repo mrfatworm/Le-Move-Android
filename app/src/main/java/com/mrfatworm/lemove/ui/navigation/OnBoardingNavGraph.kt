@@ -102,6 +102,12 @@ fun OnboardNavGraph(
                     })
                 }
 
+                composable(Screen.SignUp.route) {
+                    SignUpScreen(onNextClick = {
+                        navController.navigate(Screen.MainFlow.route)
+                    })
+                }
+
                 composable(Screen.Home.route) {
                     SignUpScreen(onNextClick = { navActions.navigationToTop(Screen.MainFlow) })
                 }

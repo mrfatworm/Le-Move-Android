@@ -3,7 +3,7 @@
  * License: Apache-2.0
  */
 
-package com.mrfatworm.lemove.home
+package com.mrfatworm.lemove.main
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -24,7 +24,7 @@ import com.mrfatworm.lemove.ui.theme.LmTypography
 import com.mrfatworm.lemove.ui.theme.Spacing
 
 @Composable
-fun HomeScreen(modifier: Modifier = Modifier, onNextClick: () -> Unit = {}) {
+fun ExploreScreen(modifier: Modifier = Modifier, onNextClick: () -> Unit = {}) {
         Column(
             modifier = Modifier
                 .fillMaxSize()
@@ -40,7 +40,7 @@ fun HomeScreen(modifier: Modifier = Modifier, onNextClick: () -> Unit = {}) {
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
                 Text(
-                    text = stringResource(id = R.string.home),
+                    text = stringResource(id = R.string.explore),
                     style = LmTypography.Headline2,
                     color = LmColor.textPrimary
                 )
@@ -51,11 +51,10 @@ fun HomeScreen(modifier: Modifier = Modifier, onNextClick: () -> Unit = {}) {
 
 @Preview
 @Composable
-fun HomeScreenPreview() {
+fun ExploreScreenPreview() {
     LeMoveTheme {
         Surface(color = LmColor.surface) {
-            HomeScreen()
-
+            ExploreScreen()
         }
     }
 }

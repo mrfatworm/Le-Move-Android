@@ -41,7 +41,7 @@ fun LeMoveNavGraph(
         }
 
         composable(route = Screen.MainFlow.route) {
-            MainNavGraph(navActions = navActions)
+            MainNavGraph(rootNavActions = navActions)
         }
     }
 }

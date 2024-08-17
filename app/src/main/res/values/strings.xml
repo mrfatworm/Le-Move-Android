@@ -56,6 +56,18 @@
     <string name="onboard_finish_title">您的活動休息時間表已全部確定</string>
     <string name="onboard_finish_desc">當您長時間未離開椅子時，你會收到「女僕風格」的提醒通知。只需點擊它，我們將指導您完成一項令人耳目一新的活動。</string>
 
-    <string name="Home_top_bar_title">早安！來動一動吧！</string>
+    <string name="home_title_01">早安！來動一動吧！</string>
+    <string name="home_title_02">點2下來提醒好友伸展吧～</string>
+    <string name="home_img_text_01">來點靈感</string>
+    <string name="home_img_text_02">久坐伸展</string>
+    <string name="home_img_text_03">最多人收藏</string>
+    <string name="home_img_text_04">我的收藏</string>
+
+    <string name="sport_group_title_01">廣受好評</string>
+
+    <string name="sport_playlist_title_01">腰部伸展</string>
+    <string name="sport_playlist_title_02">頸部放鬆</string>
+    <string name="sport_playlist_title_03">腳踝轉動</string>
+
 
 </resources>
