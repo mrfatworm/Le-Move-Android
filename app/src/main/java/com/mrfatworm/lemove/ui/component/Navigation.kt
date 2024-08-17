@@ -36,12 +36,12 @@ import com.mrfatworm.lemove.ui.theme.Spacing
 
 @Composable
 fun LeMoveBottomNavigation(
-    selectedDestination: String, navActions: LeMoveNavActions?
+    modifier: Modifier = Modifier, selectedDestination: String, navActions: LeMoveNavActions?
 ) {
     Row(
-        modifier = Modifier
+        modifier = modifier
             .fillMaxWidth()
-            .padding(start = Spacing.S12 , end = Spacing.S12, bottom = Spacing.S24)
+            .padding(start = Spacing.S12, end = Spacing.S12, bottom = Spacing.S24)
             .shadow(elevation = 2.dp, shape = CircleShape)
             .background(color = LmColor.surface, shape = CircleShape)
             .padding(horizontal = Spacing.S8, vertical = Spacing.S8)
@@ -69,16 +69,15 @@ fun NavItem(
     selected: Boolean = false,
     onClick: () -> Unit = {}
 ) {
-    Column(
-        modifier = modifier.clickable(
-            interactionSource = remember { MutableInteractionSource() },
-            indication = null) { onClick() }
-            .shadow(elevation = if(selected) 2.dp else 0.dp, shape = CircleShape)
-            .background(LmColor.surface)
-            .padding(horizontal = Spacing.S32, vertical = Spacing.S8),
+    Column(modifier = modifier
+        .clickable(
+            interactionSource = remember { MutableInteractionSource() }, indication = null
+        ) { onClick() }
+        .shadow(elevation = if (selected) 2.dp else 0.dp, shape = CircleShape)
+        .background(LmColor.surface)
+        .padding(horizontal = Spacing.S32, vertical = Spacing.S8),
         horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.spacedBy(Spacing.S4)
-    ) {
+        verticalArrangement = Arrangement.spacedBy(Spacing.S4)) {
         Icon(
             painter = painterResource(id = iconId),
             contentDescription = stringResource(id = textId),

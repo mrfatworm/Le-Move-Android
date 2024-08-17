@@ -1,8 +1,8 @@
 ![LeMoveBanner](https://raw.githubusercontent.com/mrfatworm/Le-Move-Android/main/screenshot/Cover.jpg)
 
-An exercise and stretching app designed specifically for sedentary individuals.
+![LeMoveBanner](https://raw.githubusercontent.com/mrfatworm/Le-Move-Android/main/screenshot/Screen_recording_pager.gif)
 
-This project is for practicing Jetpack Compose UI.
+Jetpack Compose UI with sample data.
 
 ---
 ## Designer (A-Z) / 設計師

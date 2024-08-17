@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Surface
@@ -18,7 +19,10 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.mrfatworm.lemove.R
 import com.mrfatworm.lemove.ui.theme.LeMoveTheme
@@ -29,7 +33,11 @@ import com.mrfatworm.lemove.ui.theme.neutral100
 
 @Composable
 fun Avatar(
-    modifier: Modifier = Modifier, imgId: Int? = null, text: String, enable: Boolean = true
+    modifier: Modifier = Modifier,
+    imgSize: Dp = 52.dp,
+    imgId: Int? = null,
+    text: String,
+    enable: Boolean = true
 ) {
     Column(
         verticalArrangement = Arrangement.spacedBy(Spacing.S4),
@@ -37,7 +45,7 @@ fun Avatar(
     ) {
         Box(
             modifier = modifier
-                .size(52.dp)
+                .size(imgSize)
                 .border(
                     width = 1.dp,
                     shape = CircleShape,
@@ -70,7 +78,15 @@ fun Avatar(
         }
 
 
-        Text(text = text, style = LmTypography.Caption, color = if (enable) LmColor.textSecondary else LmColor.textTertiary)
+        Text(
+            modifier = Modifier.width(imgSize),
+            text = text,
+            textAlign = TextAlign.Center,
+            style = LmTypography.Caption,
+            color = if (enable) LmColor.textSecondary else LmColor.textTertiary,
+            overflow = TextOverflow.Ellipsis,
+            maxLines = 1
+        )
     }
 }
 
@@ -79,7 +95,7 @@ fun Avatar(
 fun AvatarPreview() {
     LeMoveTheme {
         Surface(color = LmColor.surface) {
-            Avatar(imgId = R.drawable.img_avatar_miliy, text = "Milly")
+            Avatar(imgId = R.drawable.img_avatar_miliy, text = "Millyaaaaaaa")
         }
     }
 }
