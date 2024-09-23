@@ -16,8 +16,6 @@
     </table>
 </div>
 
-Jetpack Compose UI with sample data.
-
 ---
 
 ## Designer (A-Z) / 設計師
@@ -28,10 +26,15 @@ Jetpack Compose UI with sample data.
 - mrfatworm (Me)
 - PJ
 
-## Target / 執行平台
-
-- ✅ Android
-- iOS (Migrate to CMP in future)
+## Tech Stack / 使用技術
+- Jetpack Compose
+- Navigation Compose
+- Design System
+    - UI Component
+    - Color Libray
+    - Typographic
+    - Radius
+    - Spacer  
 
 ## Special Thanks / 鳴謝
 
